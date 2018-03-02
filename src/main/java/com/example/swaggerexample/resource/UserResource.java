@@ -5,6 +5,10 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,9 +37,9 @@ public class UserResource {
     }
 
     @ApiOperation(value = "Returns Hello world Post")
-    @PostMapping()
-    public String insert(@RequestBody final String hello) {
-        return "INSERT " + hello;
+    @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> insert(@RequestBody Map<String, String> body) {
+        return new ResponseEntity<>("Body param map: " + body, HttpStatus.OK);
     }
 
     @ApiOperation(value = "Returns Hello world Put")
@@ -43,7 +47,7 @@ public class UserResource {
     public String update(@RequestBody final String hello) {
         return "UPDATE " + hello;
     }
-    
+
     @ApiOperation(value = "Returns Hello world Delete")
     @DeleteMapping()
     public String delete(@RequestBody final String hello) {
