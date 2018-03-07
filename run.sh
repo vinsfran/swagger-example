@@ -7,4 +7,4 @@ docker run -d -t \
         --dns 192.168.129.111 \
         --dns-search asuncion.gov.py \
         devapps.asuncion.gov.py:5000/asu/maven:3.3.9 \
-        /src/mvn spring-boot:run
+        mvn spring-boot:run
