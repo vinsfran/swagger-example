@@ -8,6 +8,7 @@ public class Rhmperso {
     private String apePerson;
     private String nomPerson;
     private Date fecIngins;
+    private String foto;
 
     public Rhmperso() {
     }
@@ -17,6 +18,7 @@ public class Rhmperso {
         this.apePerson = apePerson;
         this.nomPerson = nomPerson;
         this.fecIngins = fecIngins;
+        this.foto = codPerson;
     }
 
     public String getCodPerson() {
@@ -25,6 +27,7 @@ public class Rhmperso {
 
     public void setCodPerson(String codPerson) {
         this.codPerson = codPerson;
+        setFoto(codPerson);
     }
 
     public String getApePerson() {
@@ -49,6 +52,14 @@ public class Rhmperso {
 
     public void setFecIngins(Date fecIngins) {
         this.fecIngins = fecIngins;
+    }
+
+    public String getFoto() {
+        return foto  + ".jpg";
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
 }
